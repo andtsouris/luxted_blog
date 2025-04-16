@@ -1,0 +1,131 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Luxted 5</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <a href="../index.html" class="text-2xl font-bold text-gray-800 blog-title flex items-center hover:text-gray-600">
+                        Luxted
+                        <span class="title-circle ml-1 mr-1 mt-3"></span>
+                        5
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="max-w-4xl mx-auto px-4 py-8">
+            <article class="prose prose-lg max-w-none">
+                <h1>Getting Started with Tailwind CSS</h1>
+<p><img alt="Tailwind CSS Logo" src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" /></p>
+<h2>Introduction</h2>
+<p>Tailwind CSS is a utility-first CSS framework that allows you to build custom designs without ever leaving your HTML. Unlike traditional CSS frameworks like Bootstrap, Tailwind doesn't come with pre-designed components. Instead, it provides low-level utility classes that let you build completely custom designs.</p>
+<h2>Why Use Tailwind CSS?</h2>
+<ol>
+<li><strong>Customization</strong>: Build exactly what you want without fighting against pre-designed components</li>
+<li><strong>Performance</strong>: Only the CSS you use is included in your final build</li>
+<li><strong>Developer Experience</strong>: No more switching between files to style your components</li>
+<li><strong>Responsive Design</strong>: Built-in responsive utilities make it easy to create mobile-first designs</li>
+</ol>
+<h2>Basic Example</h2>
+<p>Here's a simple example of how to use Tailwind CSS:</p>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl&quot;&gt;
+  &lt;div class=&quot;md:flex&quot;&gt;
+    &lt;div class=&quot;md:shrink-0&quot;&gt;
+      &lt;img class=&quot;h-48 w-full object-cover md:h-full md:w-48&quot; src=&quot;/img/store.jpg&quot; alt=&quot;Store&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;p-8&quot;&gt;
+      &lt;div class=&quot;uppercase tracking-wide text-sm text-indigo-500 font-semibold&quot;&gt;Case study&lt;/div&gt;
+      &lt;a href=&quot;#&quot; class=&quot;block mt-1 text-lg leading-tight font-medium text-black hover:underline&quot;&gt;Finding customers for your new business&lt;/a&gt;
+      &lt;p class=&quot;mt-2 text-slate-500&quot;&gt;Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h2>Key Features</h2>
+<h3>Utility-First Approach</h3>
+<p>Instead of writing custom CSS, you use utility classes directly in your HTML:</p>
+<pre class="codehilite"><code class="language-html">&lt;button class=&quot;bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded&quot;&gt;
+  Click me
+&lt;/button&gt;
+</code></pre>
+
+<h3>Responsive Design</h3>
+<p>Tailwind makes it easy to create responsive designs using breakpoint prefixes:</p>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;text-center sm:text-left md:text-center lg:text-right xl:text-justify&quot;&gt;
+  Responsive text alignment
+&lt;/div&gt;
+</code></pre>
+
+<h3>Dark Mode</h3>
+<p>Adding dark mode support is as simple as adding the <code>dark:</code> prefix:</p>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;bg-white dark:bg-gray-800&quot;&gt;
+  &lt;h1 class=&quot;text-gray-900 dark:text-white&quot;&gt;Dark mode support&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
+
+<h2>Getting Started</h2>
+<ol>
+<li>Install Tailwind CSS:</li>
+</ol>
+<pre class="codehilite"><code class="language-bash">npm install -D tailwindcss
+npx tailwindcss init
+</code></pre>
+
+<ol>
+<li>Configure your template paths:</li>
+</ol>
+<pre class="codehilite"><code class="language-javascript">module.exports = {
+  content: [&quot;./src/**/*.{html,js}&quot;],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+</code></pre>
+
+<ol>
+<li>Add Tailwind directives to your CSS:</li>
+</ol>
+<pre class="codehilite"><code class="language-css">@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</code></pre>
+
+<h2>Conclusion</h2>
+<p>Tailwind CSS is a powerful tool that can significantly improve your development workflow. Its utility-first approach might seem different at first, but once you get used to it, you'll find it much more efficient than traditional CSS frameworks.</p>
+<p>Remember: The key to mastering Tailwind is understanding its utility classes and how they work together to create beautiful, responsive designs. </p>
+            </article>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white">
+            <div class="max-w-4xl mx-auto px-4 py-8">
+                <div class="text-center">
+                    <p>&copy; 2024 Luxted Blog. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                document.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightBlock(block);
+                });
+            });
+        </script>
+    </body>
+    </html>
+    

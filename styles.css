@@ -1,0 +1,78 @@
+@font-face {
+    font-family: 'iA Writer Mono';
+    src: url('assets/font/iAWriterMonoV.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'iA Writer Mono';
+    src: url('assets/font/iAWriterMonoV-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+body {
+    font-family: 'iA Writer Mono', monospace;
+    background-color: white;
+}
+.blog-title {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.category-btn {
+    transition: all 0.2s;
+    position: relative;
+}
+.category-btn::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    transition: width 0.2s;
+}
+.category-btn:hover::after {
+    width: 100%;
+}
+.category-btn[onclick="filterArticles('all')"]:hover::after {
+    background-color: black;
+}
+.category-btn[onclick="filterArticles('programming')"]:hover::after {
+    background-color: #ef4444;
+}
+.category-btn[onclick="filterArticles('data')"]:hover::after {
+    background-color: #3b82f6;
+}
+.category-btn[onclick="filterArticles('life')"]:hover::after {
+    background-color: #22c55e;
+}
+.category-btn.active {
+    color: #2563eb;
+    font-weight: 600;
+}
+.category-circle {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.category-circle.all {
+    background-color: black;
+}
+.category-circle.programming {
+    background-color: #ef4444;
+}
+.category-circle.data {
+    background-color: #3b82f6;
+}
+.category-circle.life {
+    background-color: #22c55e;
+}
+.title-circle {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 0px;
+    background-color: #ef4444;
+} 
