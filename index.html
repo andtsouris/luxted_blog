@@ -1,100 +1,101 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxted 5</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luxted 5</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link href="styles.css" rel="stylesheet"/>
 </head>
+<style>
+    .title-circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 0px;
+    background-color: #ef4444;
+}
+</style>
 <body>
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="flex justify-between items-center py-4">
-                <a href="/" class="text-2xl font-bold text-gray-800 blog-title flex items-center hover:text-gray-600">
+<!-- Navigation -->
+<nav class="bg-white shadow-lg">
+<div class="max-w-4xl mx-auto px-4">
+<div class="flex justify-between items-center py-4">
+<a class="text-6xl font-bold text-gray-800 blog-title flex items-center hover:text-gray-600" href="/">
                     Luxted
-                    <span class="title-circle ml-1 mr-1 mt-3"></span>
+                    <span class="title-circle ml-1 mr-1 mt-10"></span>
                     5
                 </a>
-                <div class="flex space-x-4">
-                    <button onclick="filterArticles('all')" class="category-btn active px-4 py-2">All</button>
-                    <button onclick="filterArticles('programming')" class="category-btn px-4 py-2">Programming</button>
-                    <button onclick="filterArticles('data')" class="category-btn px-4 py-2">Data</button>
-                    <button onclick="filterArticles('life')" class="category-btn px-4 py-2">Life</button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="bg-white">
-        <div class="max-w-4xl mx-auto px-4 py-16">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Welcome to Luxted Blog</h1>
-            <p class="text-xl text-gray-600 mb-8">Thoughts, stories and ideas about technology and more.</p>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 py-8">
-        <!-- Featured Posts -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Latest Articles</h2>
-            <div class="space-y-12" id="articles-container">
-                <!-- Article 1 -->
-                <article class="article" data-category="programming">
-                    <div class="p-0">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex items-center">
-                                <span class="category-circle programming"></span>
-                                <h3 class="text-xl font-semibold text-gray-900">Getting Started with Tailwind CSS</h3>
-                            </div>
-                            <div class="text-sm text-gray-500">
-                                <span>April 16, 2024</span>
-                                <span class="mx-2">•</span>
-                                <span>5 min read</span>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 mb-4">Learn how to build beautiful, responsive websites using Tailwind CSS.</p>
-                        <a href="articles/tailwind-intro.html" class="inline-block text-blue-600 hover:text-blue-800">Read more →</a>
-                    </div>
-                </article>
-
-                <!-- Article 2 -->
-                <article class="article" data-category="data">
-                    <div class="p-0">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="flex items-center">
-                                <span class="category-circle data"></span>
-                                <h3 class="text-xl font-semibold text-gray-900">The Power of Markdown</h3>
-                            </div>
-                            <div class="text-sm text-gray-500">
-                                <span>April 15, 2024</span>
-                                <span class="mx-2">•</span>
-                                <span>4 min read</span>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 mb-4">Discover why Markdown is the perfect format for writing content on the web.</p>
-                        <a href="articles/markdown-guide.html" class="inline-block text-blue-600 hover:text-blue-800">Read more →</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white">
-        <div class="max-w-4xl mx-auto px-4 py-8">
-            <div class="text-center">
-                <p>&copy; 2024 Luxted Blog. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
+<div class="flex space-x-4">
+<button class="category-btn active px-1 py-2" onclick="filterArticles('all')">All</button>
+<button class="category-btn px-1 py-2" onclick="filterArticles('programming')">Programming</button>
+<button class="category-btn px-1 py-2" onclick="filterArticles('data')">Data</button>
+<button class="category-btn px-1 py-2" onclick="filterArticles('life')">Life</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="bg-white">
+<div class="max-w-4xl mx-auto px-4 py-24">
+<h1 class="text-4xl md:text-4xl font-black text-gray-900 mb-4 text-center">
+                Welcome to Luxted.5
+            </h1>
+</div>
+</header>
+<!-- Main Content -->
+<main class="max-w-4xl mx-auto px-4 py-8">
+<!-- Featured Posts -->
+<section class="mb-12">
+<div class="space-y-12" id="articles-container"><article class="article" data-category="programming">
+<div class="p-0">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center">
+<span class="category-circle programming"></span>
+<h3 class="text-2xl font-semibold text-gray-900">Getting Started with Tailwind CSS</h3>
+</div>
+<div class="text-sm text-gray-500 flex items-center">
+<span>April 16, 2024</span>
+<span class="mx-2">•</span>
+<span>6 min read</span>
+</div>
+</div>
+<p class="text-gray-600 mb-4">Learn how to build beautiful, responsive websites using Tailwind CSS.</p>
+<a class="inline-block text-blue-600 hover:text-blue-800" href="articles/tailwind-intro.html">Read more →</a>
+</div>
+</article><article class="article" data-category="data">
+<div class="p-0">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center">
+<span class="category-circle data"></span>
+<h3 class="text-2xl font-semibold text-gray-900">The Power of Markdown</h3>
+</div>
+<div class="text-sm text-gray-500 flex items-center">
+<span>April 15, 2024</span>
+<span class="mx-2">•</span>
+<span>4 min read</span>
+</div>
+</div>
+<p class="text-gray-600 mb-4">Discover why Markdown is the perfect format for writing content on the web.</p>
+<a class="inline-block text-blue-600 hover:text-blue-800" href="articles/markdown-guide.html">Read more →</a>
+</div>
+</article></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-800 text-white">
+<div class="max-w-4xl mx-auto px-4 py-8">
+<div class="text-center">
+<p>© 2025 Luxted.5 Blog. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
         // Initialize highlight.js
         document.addEventListener('DOMContentLoaded', (event) => {
             document.querySelectorAll('pre code').forEach((block) => {
@@ -116,9 +117,6 @@
                 btn.classList.remove('active');
             });
             document.querySelector(`.category-btn[onclick="filterArticles('${category}')"]`).classList.add('active');
-
-            // Update subtitle
-            document.querySelector('header p').textContent = categorySubtitles[category];
 
             // Filter articles
             const articles = document.querySelectorAll('.article');
