@@ -1,0 +1,13 @@
+- title: "Getting Started with Tailwind CSS"
+  category: "programming"
+  date: "April 16, 2024"
+  readTime: "6 min read"
+  description: "Learn how to build beautiful, responsive websites using Tailwind CSS."
+  slug: "tailwind-intro"
+
+- title: "The Power of Markdown"
+  category: "data"
+  date: "April 15, 2024"
+  readTime: "4 min read"
+  description: "Discover why Markdown is the perfect format for writing content on the web."
+  slug: "markdown-guide" 
