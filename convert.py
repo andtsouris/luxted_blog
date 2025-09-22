@@ -25,6 +25,7 @@ def convert_markdown_to_html(markdown_file):
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="../styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
     </head>
     <style>
         .title-circle {{
@@ -36,14 +37,21 @@ def convert_markdown_to_html(markdown_file):
             background-color: #ef4444;
         }}
         /* Header styles */
-        h1 {{ font-size: 2.5rem !important; font-weight: 800 !important; margin-top: 2rem !important; margin-bottom: 1.5rem !important; }}
-        h2 {{ font-size: 2rem !important; font-weight: 700 !important; margin-top: 1.75rem !important; margin-bottom: 1.25rem !important; }}
-        h3 {{ font-size: 1.75rem !important; font-weight: 600 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; }}
-        h4 {{ font-size: 1.5rem !important; font-weight: 600 !important; margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; }}
-        h5 {{ font-size: 1.25rem !important; font-weight: 600 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; }}
-        h6 {{ font-size: 1.1rem !important; font-weight: 600 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; }}
+        h1 {{ font-size: 2.5rem !important; font-weight: 900 !important; margin-top: 2rem !important; margin-bottom: 1.5rem !important; font-family: 'Helvetica Neue', serif !important; }}
+        h2 {{ font-size: 2rem !important; font-weight: 700 !important; margin-top: 1.75rem !important; margin-bottom: 1.25rem !important; font-family: 'Helvetica Neue', serif !important; }}
+        h3 {{ font-size: 1.75rem !important; font-weight: 600 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; font-family: 'Helvetica Neue', serif !important; }}
+        h4 {{ font-size: 1.5rem !important; font-weight: 600 !important; margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; font-family: 'Helvetica Neue', serif !important; }}
+        h5 {{ font-size: 1.25rem !important; font-weight: 600 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; font-family: 'Helvetica Neue', serif !important; }}
+        h6 {{ font-size: 1.1rem !important; font-weight: 600 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; font-family: 'Helvetica Neue', serif !important; }}
+        /* Paragraph spacing */
+        p {{ margin-bottom: 2rem !important; 
+             font-size: 1.1rem;
+            }}
         /* Bold text */
-        strong, b {{ font-weight: 900 !important; }}
+        strong, b {{ 
+            font-weight: 900 !important;
+            text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor !important;
+        }}
         /* Code block styles */
         .code-container {{
             position: relative;
@@ -108,6 +116,30 @@ def convert_markdown_to_html(markdown_file):
             border-radius: 0.25rem !important;
             padding: 0.125rem 0.25rem !important;
             font-size: 0.875rem !important;
+        }}
+        /* Link styling */
+        a {{
+            text-decoration: underline !important;
+            color: #6b7280 !important;
+        }}
+        a:hover {{
+            color: #4b5563 !important;
+        }}
+        /* List styling */
+        ul {{
+            list-style-type: none !important;
+            padding-left: 2rem !important;
+            margin-bottom: 2rem !important;
+        }}
+        ul li {{
+            margin-bottom: 0.5rem !important;
+            position: relative !important;
+        }}
+        ul li::before {{
+            content: "—" !important;
+            position: absolute !important;
+            left: -1.5rem !important;
+            color: #6b7280 !important;
         }}
     </style>
     <body>
@@ -222,7 +254,7 @@ def update_index_html(yaml_file):
             <div class="flex justify-between items-center mb-4">
                 <div class="flex items-center">
                     <span class="category-circle {article['category']}"></span>
-                    <h3 class="text-2xl font-semibold text-gray-900">{article['title']}</h3>
+                    <h3 class="text-3xl font-bold text-gray-900 ml-3" style="font-family: 'Helvetica', sans-serif;">{article['title']}</h3>
                 </div>
                 <div class="text-sm text-gray-500 flex items-center">
                     <span>{article['date']}</span>
