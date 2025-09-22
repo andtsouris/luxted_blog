@@ -157,69 +157,69 @@
 </ol>
 <h2>Basic Example</h2>
 <p>Here's a simple example of how to use Tailwind CSS:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;md:flex&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;md:shrink-0&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">img</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;h-48 w-full object-cover md:h-full md:w-48&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/img/store.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Store&quot;</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;p-8&quot;</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;uppercase tracking-wide text-sm text-indigo-500 font-semibold&quot;</span><span class="p">&gt;</span>Case study<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;block mt-1 text-lg leading-tight font-medium text-black hover:underline&quot;</span><span class="p">&gt;</span>Finding customers for your new business<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mt-2 text-slate-500&quot;</span><span class="p">&gt;</span>Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl&quot;&gt;
+  &lt;div class=&quot;md:flex&quot;&gt;
+    &lt;div class=&quot;md:shrink-0&quot;&gt;
+      &lt;img class=&quot;h-48 w-full object-cover md:h-full md:w-48&quot; src=&quot;/img/store.jpg&quot; alt=&quot;Store&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;p-8&quot;&gt;
+      &lt;div class=&quot;uppercase tracking-wide text-sm text-indigo-500 font-semibold&quot;&gt;Case study&lt;/div&gt;
+      &lt;a href=&quot;#&quot; class=&quot;block mt-1 text-lg leading-tight font-medium text-black hover:underline&quot;&gt;Finding customers for your new business&lt;/a&gt;
+      &lt;p class=&quot;mt-2 text-slate-500&quot;&gt;Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
 <h2>Key Features</h2>
 <h3>Utility-First Approach</h3>
 <p>Instead of writing custom CSS, you use utility classes directly in your HTML:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded&quot;</span><span class="p">&gt;</span>
+<pre class="codehilite"><code class="language-html">&lt;button class=&quot;bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded&quot;&gt;
   Click me
-<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
-</code></pre></div>
+&lt;/button&gt;
+</code></pre>
 
 <h3>Responsive Design</h3>
 <p>Tailwind makes it easy to create responsive designs using breakpoint prefixes:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-center sm:text-left md:text-center lg:text-right xl:text-justify&quot;</span><span class="p">&gt;</span>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;text-center sm:text-left md:text-center lg:text-right xl:text-justify&quot;&gt;
   Responsive text alignment
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+&lt;/div&gt;
+</code></pre>
 
 <h3>Dark Mode</h3>
 <p>Adding dark mode support is as simple as adding the <code>dark:</code> prefix:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-white dark:bg-gray-800&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;text-gray-900 dark:text-white&quot;</span><span class="p">&gt;</span>Dark mode support<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;bg-white dark:bg-gray-800&quot;&gt;
+  &lt;h1 class=&quot;text-gray-900 dark:text-white&quot;&gt;Dark mode support&lt;/h1&gt;
+&lt;/div&gt;
+</code></pre>
 
 <h2>Getting Started</h2>
 <ol>
 <li>Install Tailwind CSS:</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-D<span class="w"> </span>tailwindcss
-npx<span class="w"> </span>tailwindcss<span class="w"> </span>init
-</code></pre></div>
+<pre class="codehilite"><code class="language-bash">npm install -D tailwindcss
+npx tailwindcss init
+</code></pre>
 
 <ol>
 <li>Configure your template paths:</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">content</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./src/**/*.{html,js}&quot;</span><span class="p">],</span>
-<span class="w">  </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">extend</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
-<span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nx">plugins</span><span class="o">:</span><span class="w"> </span><span class="p">[],</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-javascript">module.exports = {
+  content: [&quot;./src/**/*.{html,js}&quot;],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+</code></pre>
 
 <ol>
 <li>Add Tailwind directives to your CSS:</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">base</span><span class="p">;</span>
-<span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">components</span><span class="p">;</span>
-<span class="p">@</span><span class="k">tailwind</span><span class="w"> </span><span class="nt">utilities</span><span class="p">;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-css">@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</code></pre>
 
 <h2>Conclusion</h2>
 <p>Tailwind CSS is a powerful tool that can significantly improve your development workflow. Its utility-first approach might seem different at first, but once you get used to it, you'll find it much more efficient than traditional CSS frameworks.</p>

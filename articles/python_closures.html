@@ -83,7 +83,17 @@
             position: relative;
             margin: 0 !important;
         }
-        
+        pre code .line::before {
+            counter-increment: line;
+            content: counter(line);
+            position: absolute;
+            left: 0;
+            width: 2.5rem;
+            text-align: right;
+            padding-right: 0.5rem;
+            color: #5f5f5f;
+            user-select: none;
+        }
         /* Inline code */
         p code, li code {
             background-color: #f3f4f6 !important;
@@ -140,50 +150,50 @@
 Closures are essentially <strong>nested functions</strong>. An <em>outer function</em> encloses an <em>inner function</em> that is ultimately returned as the outer functions output. We can then call the outer function, assign its output (the inner function) to a variable and then call that as many times as we want. The inner function retains all information from its non-local scope (the outer function).
 <br /><br /><br />
 To create a simple counter we need to declare the count variable in the outer function and add to it in the inner function</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">counter</span><span class="p">():</span>
-    <span class="n">cur_count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">():</span>
-        <span class="n">cur_count</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">cur_count</span>
-    <span class="k">return</span> <span class="n">count</span>
+<pre class="codehilite"><code class="language-python">def counter():
+    cur_count = 0
+    def count():
+        cur_count += 1
+        return cur_count
+    return count
 
-<span class="n">counter1</span> <span class="o">=</span> <span class="n">counter</span><span class="p">()</span>
-<span class="n">counter1</span><span class="p">()</span> <span class="c1"># returns 1</span>
-<span class="n">counter1</span><span class="p">()</span> <span class="c1"># returns 2</span>
-<span class="n">counter1</span><span class="p">()</span> <span class="c1"># returns 3</span>
-</code></pre></div>
+counter1 = counter()
+counter1() # returns 1
+counter1() # returns 2
+counter1() # returns 3
+</code></pre>
 
 <p><br />
 Creating an appender is similar but instead of adding 1 to an integer we add strings/integers, or whatever else you want, to a list. </p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_appender</span><span class="p">():</span>
-    <span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_list</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-        <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">my_list</span>
-    <span class="k">return</span> <span class="n">add_to_list</span>
+<pre class="codehilite"><code class="language-python">def make_appender():
+    my_list = []
+    def add_to_list(item):
+        my_list.append(item)
+        return my_list
+    return add_to_list
 
-<span class="n">minion_words</span> <span class="o">=</span> <span class="n">make_appender</span><span class="p">()</span>
-<span class="n">minion_words</span><span class="p">(</span><span class="s1">&#39;bello&#39;</span><span class="p">)</span>       <span class="c1"># [&#39;bello&#39;]</span>
-<span class="n">minion_words</span><span class="p">(</span><span class="s1">&#39;bank yu&#39;</span><span class="p">)</span>     <span class="c1"># [&#39;bello&#39;, &#39;bank yu&#39;]</span>
-<span class="n">minion_words</span><span class="p">(</span><span class="s1">&#39;poopaye&#39;</span><span class="p">)</span>     <span class="c1"># [&#39;bello&#39;, &#39;bank yu&#39;, &#39;poopaye&#39;]</span>
-</code></pre></div>
+minion_words = make_appender()
+minion_words('bello')       # ['bello']
+minion_words('bank yu')     # ['bello', 'bank yu']
+minion_words('poopaye')     # ['bello', 'bank yu', 'poopaye']
+</code></pre>
 
 <p><br />
 We can also have parameters for the outer function that are then passed to the inner function. Changing the values of these parameters allows us to create variants of the inner function.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">disco_disco_party_party</span><span class="p">(</span><span class="n">i_say</span><span class="p">,</span> <span class="n">you_say</span><span class="p">):</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">sing_verse</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;I say </span><span class="si">{</span><span class="n">i_say</span><span class="si">}</span><span class="s1">.</span><span class="se">\n</span><span class="s1">You say </span><span class="si">{</span><span class="n">you_say</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i_say</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">i_say</span><span class="si">}</span><span class="s1">!</span><span class="se">\n</span><span class="si">{</span><span class="n">you_say</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">you_say</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">sing_verse</span>
+<pre class="codehilite"><code class="language-python">def disco_disco_party_party(i_say, you_say):
+    def sing_verse():
+        print(f'I say {i_say}.\nYou say {you_say}.')
+        print(f'{i_say.capitalize()}, {i_say}!\n{you_say.capitalize()}, {you_say}!')
+    return sing_verse
 
-<span class="n">verse1</span> <span class="o">=</span> <span class="n">disco_disco_party_party</span><span class="p">(</span><span class="s1">&#39;disco&#39;</span><span class="p">,</span> <span class="s1">&#39;party&#39;</span><span class="p">)</span>
-<span class="n">verse2</span> <span class="o">=</span> <span class="n">disco_disco_party_party</span><span class="p">(</span><span class="s1">&#39;party&#39;</span><span class="p">,</span> <span class="s1">&#39;disco&#39;</span><span class="p">)</span>
-<span class="n">verse3</span> <span class="o">=</span> <span class="n">disco_disco_party_party</span><span class="p">(</span><span class="s1">&#39;disco&#39;</span><span class="p">,</span> <span class="s1">&#39;disco&#39;</span><span class="p">)</span>
-<span class="n">verse1</span><span class="p">()</span>
-<span class="n">verse1</span><span class="p">()</span>
-<span class="n">verse2</span><span class="p">()</span>
-<span class="n">verse3</span><span class="p">()</span>
-</code></pre></div>
+verse1 = disco_disco_party_party('disco', 'party')
+verse2 = disco_disco_party_party('party', 'disco')
+verse3 = disco_disco_party_party('disco', 'disco')
+verse1()
+verse1()
+verse2()
+verse3()
+</code></pre>
 
 <p><br />
 Closures can also be used to create decorators, caching functions and callback functions amongst others, but these are subjects for later articles.
