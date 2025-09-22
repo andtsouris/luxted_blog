@@ -1,3 +1,18 @@
+- title: "Python - Closures"
+  category: "programming"
+  date: "May 14, 2025"
+  readTime: "4 min read"
+  description: "Simple explanation of closures in Python."
+  slug: "python_closures"
+
+
+- title: "The Terminal: Daunting at the beginning but useful, immedately after"
+  category: "programming"
+  date: "May 4, 2025"
+  readTime: "3 min read"
+  description: "The many advantages of using the terminal."
+  slug: "the-terminal"
+
 - title: "Getting Started with Tailwind CSS"
   category: "programming"
   date: "April 16, 2024"
@@ -5,9 +20,9 @@
   description: "Learn how to build beautiful, responsive websites using Tailwind CSS."
   slug: "tailwind-intro"
 
-- title: "The Power of Markdown"
-  category: "data"
+- title: "The Command line interface"
+  category: "programming"
   date: "April 15, 2024"
   readTime: "4 min read"
-  description: "Discover why Markdown is the perfect format for writing content on the web."
-  slug: "markdown-guide" 
+  description: "Discover why the command line interface (CLI) is probably the most powerful tool in every programmers arsenal."
+  slug: "cli_article" 

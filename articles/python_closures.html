@@ -1,0 +1,252 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Luxted 5</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="../styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        .title-circle {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 0px;
+            background-color: #ef4444;
+        }
+        /* Header styles */
+        h1 { font-size: 2.5rem !important; font-weight: 900 !important; margin-top: 2rem !important; margin-bottom: 1.5rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h2 { font-size: 2rem !important; font-weight: 700 !important; margin-top: 1.75rem !important; margin-bottom: 1.25rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h3 { font-size: 1.75rem !important; font-weight: 600 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h4 { font-size: 1.5rem !important; font-weight: 600 !important; margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h5 { font-size: 1.25rem !important; font-weight: 600 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h6 { font-size: 1.1rem !important; font-weight: 600 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; font-family: 'Helvetica Neue', serif !important; }
+        /* Paragraph spacing */
+        p { margin-bottom: 2rem !important; 
+             font-size: 1.1rem;
+            }
+        /* Bold text */
+        strong, b { 
+            font-weight: 900 !important;
+            text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor !important;
+        }
+        /* Code block styles */
+        .code-container {
+            position: relative;
+            margin: 1rem 0;
+        }
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            background-color: #f8f9fa;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            color: #6b7280;
+            transition: all 0.2s;
+        }
+        .copy-button:hover {
+            border: 1px solid #5f5f5f !important;
+            background-color: #e5e7eb;
+            color: #5f5f5f;
+        }
+        pre {
+            background-color: #f8f9fa !important;
+            border: 1px solid #e5e7eb !important;
+            border-radius: 0.5rem !important;
+            padding: 0.5rem !important;
+            padding-left: 0rem !important;
+            padding-bottom: 1rem !important;
+            margin: 0 !important;
+            overflow-x: auto !important;
+            position: relative;
+        }
+        pre code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+            font-size: 0.875rem !important;
+            background-color: #f8f9fa !important;
+            line-height: 0.8 !important;
+            counter-reset: line;
+        }
+        pre code .line {
+            display: block;
+            padding-left: 3.5rem;
+            position: relative;
+            margin: 0 !important;
+        }
+        
+        /* Inline code */
+        p code, li code {
+            background-color: #f3f4f6 !important;
+            border: 1px solid #e5e7eb !important;
+            border-radius: 0.25rem !important;
+            padding: 0.125rem 0.25rem !important;
+            font-size: 0.875rem !important;
+        }
+        /* Link styling */
+        a {
+            text-decoration: underline !important;
+            color: #6b7280 !important;
+        }
+        a:hover {
+            color: #4b5563 !important;
+        }
+        /* List styling */
+        ul {
+            list-style-type: none !important;
+            padding-left: 2rem !important;
+            margin-bottom: 2rem !important;
+        }
+        ul li {
+            margin-bottom: 0.5rem !important;
+            position: relative !important;
+        }
+        ul li::before {
+            content: "—" !important;
+            position: absolute !important;
+            left: -1.5rem !important;
+            color: #6b7280 !important;
+        }
+    </style>
+    <body>
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg">
+            <div class="max-w-4xl mx-auto px-4">
+                <div class="flex justify-between items-center py-4">
+                    <a href="../index.html" class="text-2xl font-bold text-gray-800 blog-title flex items-center hover:text-gray-600">
+                        Luxted
+                        <span class="title-circle ml-1 mr-1 mt-3"></span>
+                        5
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="max-w-4xl mx-auto px-4 py-8">
+            <article class="prose prose-lg max-w-none mb-32">
+                <h1>Python - Closures</h1>
+<p>Sometimes wrapping a block of code inside a function is not enough. Sometimes we need the function to retain some information across multiple calls. This might be a counter, that must remember the last count in order to add to it on each call, an appender, that must retain the list to which it must add yet another item or function that needs to retain a set of parameters which don’t need to be passed to it on every call. As a first instinct I opted to solving this issue using a class, but in Python there is a simpler solution, <strong>closures</strong>.
+<br /><br /><br />
+Closures are essentially <strong>nested functions</strong>. An <em>outer function</em> encloses an <em>inner function</em> that is ultimately returned as the outer functions output. We can then call the outer function, assign its output (the inner function) to a variable and then call that as many times as we want. The inner function retains all information from its non-local scope (the outer function).
+<br /><br /><br />
+To create a simple counter we need to declare the count variable in the outer function and add to it in the inner function</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">counter</span><span class="p">():</span>
+    <span class="n">cur_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">():</span>
+        <span class="n">cur_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">cur_count</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="n">counter1</span> <span class="o">=</span> <span class="n">counter</span><span class="p">()</span>
+<span class="n">counter1</span><span class="p">()</span> <span class="c1"># returns 1</span>
+<span class="n">counter1</span><span class="p">()</span> <span class="c1"># returns 2</span>
+<span class="n">counter1</span><span class="p">()</span> <span class="c1"># returns 3</span>
+</code></pre></div>
+
+<p><br />
+Creating an appender is similar but instead of adding 1 to an integer we add strings/integers, or whatever else you want, to a list. </p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">make_appender</span><span class="p">():</span>
+    <span class="n">my_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_to_list</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+        <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">my_list</span>
+    <span class="k">return</span> <span class="n">add_to_list</span>
+
+<span class="n">minion_words</span> <span class="o">=</span> <span class="n">make_appender</span><span class="p">()</span>
+<span class="n">minion_words</span><span class="p">(</span><span class="s1">&#39;bello&#39;</span><span class="p">)</span>       <span class="c1"># [&#39;bello&#39;]</span>
+<span class="n">minion_words</span><span class="p">(</span><span class="s1">&#39;bank yu&#39;</span><span class="p">)</span>     <span class="c1"># [&#39;bello&#39;, &#39;bank yu&#39;]</span>
+<span class="n">minion_words</span><span class="p">(</span><span class="s1">&#39;poopaye&#39;</span><span class="p">)</span>     <span class="c1"># [&#39;bello&#39;, &#39;bank yu&#39;, &#39;poopaye&#39;]</span>
+</code></pre></div>
+
+<p><br />
+We can also have parameters for the outer function that are then passed to the inner function. Changing the values of these parameters allows us to create variants of the inner function.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">disco_disco_party_party</span><span class="p">(</span><span class="n">i_say</span><span class="p">,</span> <span class="n">you_say</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sing_verse</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;I say </span><span class="si">{</span><span class="n">i_say</span><span class="si">}</span><span class="s1">.</span><span class="se">\n</span><span class="s1">You say </span><span class="si">{</span><span class="n">you_say</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i_say</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">i_say</span><span class="si">}</span><span class="s1">!</span><span class="se">\n</span><span class="si">{</span><span class="n">you_say</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">you_say</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sing_verse</span>
+
+<span class="n">verse1</span> <span class="o">=</span> <span class="n">disco_disco_party_party</span><span class="p">(</span><span class="s1">&#39;disco&#39;</span><span class="p">,</span> <span class="s1">&#39;party&#39;</span><span class="p">)</span>
+<span class="n">verse2</span> <span class="o">=</span> <span class="n">disco_disco_party_party</span><span class="p">(</span><span class="s1">&#39;party&#39;</span><span class="p">,</span> <span class="s1">&#39;disco&#39;</span><span class="p">)</span>
+<span class="n">verse3</span> <span class="o">=</span> <span class="n">disco_disco_party_party</span><span class="p">(</span><span class="s1">&#39;disco&#39;</span><span class="p">,</span> <span class="s1">&#39;disco&#39;</span><span class="p">)</span>
+<span class="n">verse1</span><span class="p">()</span>
+<span class="n">verse1</span><span class="p">()</span>
+<span class="n">verse2</span><span class="p">()</span>
+<span class="n">verse3</span><span class="p">()</span>
+</code></pre></div>
+
+<p><br />
+Closures can also be used to create decorators, caching functions and callback functions amongst others, but these are subjects for later articles.
+<br /><br /><br />
+I hope you learned something new with this article and if you want to dig deeper into closures you can use the following links.</p>
+<ul>
+<li><strong>Learn Python</strong> - <a href="https://www.learnpython.org/en/Closures">Closures</a></li>
+<li><strong>Analytics Vidhya</strong> - <a href="https://www.analyticsvidhya.com/blog/2024/02/python-closures/">Understanding Python Closures: Deep Dive into Functional Programming</a></li>
+<li><strong>Real Python</strong> - <a href="https://realpython.com/python-closure/">Python Closures: Common Use Cases and Examples</a>
+<br /><br /><br />
+As a challenge, you can try to implement a simple caching function. It should should receive any function as a parameter and save its input and output. Every time you call it, it will query the previous inputs and if the current input has already been processed it will directly return the output without having to process it again. Enjoy the challenge!</li>
+</ul>
+            </article>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white">
+            <div class="max-w-4xl mx-auto px-4 py-8">
+                <div class="text-center">
+                    <p>&copy; 2025 Luxted.5 Blog. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                // Initialize highlight.js
+                document.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightBlock(block);
+                    
+                    // Add line numbers
+                    const lines = block.innerHTML.split('\n');
+                    block.innerHTML = lines.map((line, i) => {
+                        return `<span class="line">${line}</span>`;
+                    }).join('\n');
+                    
+                    // Add copy button
+                    const container = document.createElement('div');
+                    container.className = 'code-container';
+                    block.parentNode.parentNode.insertBefore(container, block.parentNode);
+                    container.appendChild(block.parentNode);
+                    
+                    const copyButton = document.createElement('button');
+                    copyButton.className = 'copy-button';
+                    copyButton.innerHTML = '<i class="fas fa-copy"></i>';
+                    copyButton.title = 'Copy to clipboard';
+                    container.appendChild(copyButton);
+                    
+                    copyButton.addEventListener('click', async () => {
+                        const text = block.innerText;
+                        try {
+                            await navigator.clipboard.writeText(text);
+                            copyButton.innerHTML = '<i class="fas fa-check"></i>';
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<i class="fas fa-copy"></i>';
+                            }, 2000);
+                        } catch (err) {
+                            console.error('Failed to copy text: ', err);
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+    </html>
+    

@@ -10,6 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="../styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
     </head>
     <style>
         .title-circle {
@@ -21,14 +22,21 @@
             background-color: #ef4444;
         }
         /* Header styles */
-        h1 { font-size: 2.5rem !important; font-weight: 800 !important; margin-top: 2rem !important; margin-bottom: 1.5rem !important; }
-        h2 { font-size: 2rem !important; font-weight: 700 !important; margin-top: 1.75rem !important; margin-bottom: 1.25rem !important; }
-        h3 { font-size: 1.75rem !important; font-weight: 600 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; }
-        h4 { font-size: 1.5rem !important; font-weight: 600 !important; margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; }
-        h5 { font-size: 1.25rem !important; font-weight: 600 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; }
-        h6 { font-size: 1.1rem !important; font-weight: 600 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; }
+        h1 { font-size: 2.5rem !important; font-weight: 900 !important; margin-top: 2rem !important; margin-bottom: 1.5rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h2 { font-size: 2rem !important; font-weight: 700 !important; margin-top: 1.75rem !important; margin-bottom: 1.25rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h3 { font-size: 1.75rem !important; font-weight: 600 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h4 { font-size: 1.5rem !important; font-weight: 600 !important; margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h5 { font-size: 1.25rem !important; font-weight: 600 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; font-family: 'Helvetica Neue', serif !important; }
+        h6 { font-size: 1.1rem !important; font-weight: 600 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; font-family: 'Helvetica Neue', serif !important; }
+        /* Paragraph spacing */
+        p { margin-bottom: 2rem !important; 
+             font-size: 1.1rem;
+            }
         /* Bold text */
-        strong, b { font-weight: 900 !important; }
+        strong, b { 
+            font-weight: 900 !important;
+            text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor !important;
+        }
         /* Code block styles */
         .code-container {
             position: relative;
@@ -94,6 +102,30 @@
             padding: 0.125rem 0.25rem !important;
             font-size: 0.875rem !important;
         }
+        /* Link styling */
+        a {
+            text-decoration: underline !important;
+            color: #6b7280 !important;
+        }
+        a:hover {
+            color: #4b5563 !important;
+        }
+        /* List styling */
+        ul {
+            list-style-type: none !important;
+            padding-left: 2rem !important;
+            margin-bottom: 2rem !important;
+        }
+        ul li {
+            margin-bottom: 0.5rem !important;
+            position: relative !important;
+        }
+        ul li::before {
+            content: "—" !important;
+            position: absolute !important;
+            left: -1.5rem !important;
+            color: #6b7280 !important;
+        }
     </style>
     <body>
         <!-- Navigation -->
@@ -112,113 +144,27 @@
         <!-- Main Content -->
         <main class="max-w-4xl mx-auto px-4 py-8">
             <article class="prose prose-lg max-w-none mb-32">
-                <h1>Command line interface: Daunting at the beginning, useful in the end</h1>
-<p><img alt="Markdown Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/1200px-Markdown-mark.svg.png" /></p>
-<h2>What is Markdown?</h2>
-<p>Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. Created by John Gruber in 2004, Markdown is now one of the world's most popular markup languages.</p>
-<h2>Why Use Markdown?</h2>
-<ol>
-<li><strong>Simplicity</strong>: Easy to read and write</li>
-<li><strong>Portability</strong>: Works everywhere</li>
-<li><strong>Flexibility</strong>: Can be converted to HTML, PDF, and other formats</li>
-<li><strong>Version Control Friendly</strong>: Perfect for documentation in Git repositories</li>
-</ol>
-<h2>Basic Syntax</h2>
-<h3>Headers</h3>
-<pre class="codehilite"><code class="language-markdown"># H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-</code></pre>
+                <h1>The Terminal: Daunting at the beginning but useful, immediately after</h1>
+<p>The terminal is a text-based way for users to interact with the operating system. This black window with white letters can look scary for those that never used it before but everyone can easily master it within a couple of hours. There are hundreds of tutorial on how to use the CLI. So, here we will focus on why one should learn to use it.</p>
+<p>Before the graphical user interface (GUI) was a thing, the terminal was the only way to interact with a computer. Nowadays, it still remains one of the most useful tools in any computer savvy person's arsenal.</p>
+<p>Using the command line has a steep (but short) learning curve and anyone can get started within a couple of minutes. The terminal has 5 main advantages (economy, speed, diversity, flexibility and automation). First of all, the terminal requires less resources than GUI applications, leaving more hardware available for resource intensive processes. Secondly, typing in commands is much faster than having to locate and click buttons on the screen  every time you want to perform a task. Of course, if you have to look up every command you type using the terminal can be excruciatingly slow (and it often is absolute beginners) but you're in luck because most of the basic commands are pretty intuitive and easy to memorize. For example,</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">pwd</span><span class="w">   </span><span class="c1">#(P)rint (W)orking (D)irectory</span>
+ls<span class="w">    </span><span class="c1">#(L)i(S)t the files in a directory</span>
+<span class="nb">cd</span><span class="w">    </span><span class="c1">#(C)hange (D)irectory</span>
+mv<span class="w">    </span><span class="c1">#(M)o(V)e a file</span>
+cp<span class="w">    </span><span class="c1">#(C)o(P)y a file</span>
+rm<span class="w">    </span><span class="c1">#(R)e(M)ove a file</span>
+mkdir<span class="w"> </span><span class="c1">#(M)a(K)e a new (DIR)ectory </span>
+</code></pre></div>
 
-<h3>Emphasis</h3>
-<pre class="codehilite"><code class="language-markdown">*Italic text* or _Italic text_
-**Bold text** or __Bold text__
-***Bold and italic*** or ___Bold and italic___
-</code></pre>
-
-<h3>Lists</h3>
-<h4>Unordered Lists</h4>
-<pre class="codehilite"><code class="language-markdown">- Item 1
-- Item 2
-  - Subitem 2.1
-  - Subitem 2.2
-- Item 3
-</code></pre>
-
-<h4>Ordered Lists</h4>
-<pre class="codehilite"><code class="language-markdown">1. First item
-2. Second item
-3. Third item
-</code></pre>
-
-<h3>Links and Images</h3>
-<pre class="codehilite"><code class="language-markdown">[Link text](https://example.com)
-![Alt text](https://example.com/image.jpg)
-</code></pre>
-
-<h3>Code Blocks</h3>
-<p>Inline code:</p>
-<pre class="codehilite"><code class="language-markdown">Use `code` for inline code snippets
-</code></pre>
-
-<p>Code blocks:</p>
-<pre class="codehilite"><code class="language-markdown">```javascript
-function hello() {
-  console.log(&quot;Hello, world!&quot;);
-}
-```
-</code></pre>
-
-<h3>Tables</h3>
-<pre class="codehilite"><code class="language-markdown">| Header 1 | Header 2 |
-|----------|----------|
-| Cell 1   | Cell 2   |
-| Cell 3   | Cell 4   |
-</code></pre>
-
-<h2>Advanced Features</h2>
-<h3>Task Lists</h3>
-<pre class="codehilite"><code class="language-markdown">- [x] Completed task
-- [ ] Incomplete task
-</code></pre>
-
-<h3>Blockquotes</h3>
-<pre class="codehilite"><code class="language-markdown">&gt; This is a blockquote
-&gt; 
-&gt; It can span multiple lines
-</code></pre>
-
-<h3>Horizontal Rules</h3>
-<pre class="codehilite"><code class="language-markdown">---
-</code></pre>
-
-<h2>Markdown in Different Platforms</h2>
-<h3>GitHub</h3>
-<p>GitHub Flavored Markdown (GFM) adds additional features:
-- Task lists
-- Tables
-- Strikethrough
-- Automatic URL linking
-- Syntax highlighting</p>
-<h3>VS Code</h3>
-<p>VS Code has excellent Markdown support:
-- Live preview
-- Syntax highlighting
-- Extensions for additional features</p>
-<h2>Best Practices</h2>
-<ol>
-<li><strong>Keep it Simple</strong>: Use basic formatting when possible</li>
-<li><strong>Be Consistent</strong>: Stick to one style for similar elements</li>
-<li><strong>Use Headers Properly</strong>: Maintain a clear hierarchy</li>
-<li><strong>Add Alt Text</strong>: Always include descriptive alt text for images</li>
-<li><strong>Preview Often</strong>: Check how your Markdown renders</li>
-</ol>
-<h2>Conclusion</h2>
-<p>Markdown is an essential tool for developers, writers, and anyone who works with text. Its simplicity and versatility make it perfect for documentation, blogging, and note-taking. Once you master the basics, you'll find yourself using Markdown everywhere!</p>
-<p>Remember: The beauty of Markdown is in its simplicity. Don't overcomplicate things - let the content speak for itself. </p>
+<p>These 7 commands, which take less than a minute to memorize, cover most of the basic file handling actions out there. Of course, the diversity of things one can do in the terminal is immense. There is a plethora of commands, as well as an endless number of programs one can run. Furthermore you can combine multiple programs by feeding the output of one program into another using the pipe symbol <code>|</code>.</p>
+<p>The greatest advantage of the terminal, however, is automation. You can bundle up a set of commands into a script that executes these commands every time you run it. Let’s say, you need to run a series of 10 commands regularly. By putting these commands into a script you will have a more robust and consistent result, than running each command manually, as the exact same commands are run by the script. Eliminating the possibility of subtle mistakes that could happen if you execute the commands manually. Lastly, executing a single script, instead of 10 commands, will save you time and simplify your workflow.</p>
+<p>With all these advantages, I can’t understand why anyone would avoid learning how to use the terminal. If you decide to start learning, here are some great resources.</p>
+<ul>
+<li><strong>Real Python tutorial</strong> - <a href="https://realpython.com/terminal-commands/">The Terminal: first steps and useful commands</a></li>
+<li><strong>Ubuntu.com</strong> - <a href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">The Linux command line for beginners</a></li>
+<li><strong>Percy Grunwald</strong> <a href="https://www.youtube.com/watch?v=aKRYQsKR46I&amp;ab_channel=PercyGrunwaldfromTopTechSkills">youtube video</a></li>
+</ul>
             </article>
         </main>
 

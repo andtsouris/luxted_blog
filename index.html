@@ -10,7 +10,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <link href="styles.css" rel="stylesheet"/>
-</head>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300&amp;family=Montserrat:wght@200&amp;family=EB+Garamond:wght@300&amp;family=Cormorant+Garamond:wght@300&amp;family=DM+Serif+Text&amp;display=swap" rel="stylesheet"/>
 <style>
     .title-circle {
     display: inline-block;
@@ -20,7 +23,24 @@
     margin-right: 0px;
     background-color: #ef4444;
 }
+    .article-title {
+        font-family: 'Helvetica Neue', serif !important;
+        word-wrap: break-word !important;
+        max-width: 100% !important;
+        flex: 1 !important;
+    }
+    .category-circle {
+        width: 10px !important;
+        height: 10px !important;
+        flex-shrink: 0 !important;
+    }
+    .article-meta {
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+        margin-left: 1rem !important;
+    }
 </style>
+</head>
 <body>
 <!-- Navigation -->
 <nav class="bg-white shadow-lg">
@@ -42,10 +62,9 @@
 </nav>
 <!-- Hero Section -->
 <header class="bg-white">
-<div class="max-w-4xl mx-auto px-4 py-24">
-<h1 class="text-4xl md:text-4xl font-black text-gray-900 mb-4 text-center">
-                Welcome to Luxted.5
-            </h1>
+<div class="max-w-4xl mx-auto px-4 py-24 my-8">
+<h1 class="text-6xl md:text-7xl font-light text-gray-900 text-center mb-4" style="font-family: 'Helvetica', serif;">Welcome to</h1>
+<h1 class="text-6xl md:text-7xl font-bold text-gray-900 text-center " style="font-family: 'Helvetica', serif; letter-spacing: -0.05em;">Luxted.5</h1>
 </div>
 </header>
 <!-- Main Content -->
@@ -57,7 +76,39 @@
 <div class="flex justify-between items-center mb-4">
 <div class="flex items-center">
 <span class="category-circle programming"></span>
-<h3 class="text-2xl font-semibold text-gray-900">Getting Started with Tailwind CSS</h3>
+<h3 class="text-3xl font-bold text-gray-900 ml-3 article-title">Python - Closures</h3>
+</div>
+<div class="text-sm text-gray-500 flex items-center">
+<span>May 14, 2025</span>
+<span class="mx-2">•</span>
+<span>4 min read</span>
+</div>
+</div>
+<p class="text-gray-600 mb-4">Simple explanation of closures in Python.</p>
+<a class="inline-block text-blue-600 hover:text-blue-800" href="articles/python_closures.html">Read more →</a>
+</div>
+</article><article class="article" data-category="programming">
+<div class="p-0">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center flex-1 min-w-0">
+<span class="category-circle programming"></span>
+<h3 class="text-3xl font-bold text-gray-900 ml-3 article-title">The Terminal: Daunting at the beginning but useful, immedately after</h3>
+</div>
+<div class="text-sm text-gray-500 flex items-center article-meta">
+<span>May 4, 2025</span>
+<span class="mx-2">•</span>
+<span>3 min read</span>
+</div>
+</div>
+<p class="text-gray-600 mb-4">The many advantages of using the terminal.</p>
+<a class="inline-block text-blue-600 hover:text-blue-800" href="articles/the-terminal.html">Read more →</a>
+</div>
+</article><article class="article" data-category="programming">
+<div class="p-0">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center">
+<span class="category-circle programming"></span>
+<h3 class="text-3xl font-bold text-gray-900 ml-3 article-title">Getting Started with Tailwind CSS</h3>
 </div>
 <div class="text-sm text-gray-500 flex items-center">
 <span>April 16, 2024</span>
@@ -68,12 +119,12 @@
 <p class="text-gray-600 mb-4">Learn how to build beautiful, responsive websites using Tailwind CSS.</p>
 <a class="inline-block text-blue-600 hover:text-blue-800" href="articles/tailwind-intro.html">Read more →</a>
 </div>
-</article><article class="article" data-category="data">
+</article><article class="article" data-category="programming">
 <div class="p-0">
 <div class="flex justify-between items-center mb-4">
 <div class="flex items-center">
-<span class="category-circle data"></span>
-<h3 class="text-2xl font-semibold text-gray-900">The Power of Markdown</h3>
+<span class="category-circle programming"></span>
+<h3 class="text-3xl font-bold text-gray-900 ml-3 article-title">The Command line interface</h3>
 </div>
 <div class="text-sm text-gray-500 flex items-center">
 <span>April 15, 2024</span>
@@ -81,8 +132,8 @@
 <span>4 min read</span>
 </div>
 </div>
-<p class="text-gray-600 mb-4">Discover why Markdown is the perfect format for writing content on the web.</p>
-<a class="inline-block text-blue-600 hover:text-blue-800" href="articles/markdown-guide.html">Read more →</a>
+<p class="text-gray-600 mb-4">Discover why the command line interface (CLI) is probably the most powerful tool in every programmers arsenal.</p>
+<a class="inline-block text-blue-600 hover:text-blue-800" href="articles/cli_article.html">Read more →</a>
 </div>
 </article></div>
 </section>
