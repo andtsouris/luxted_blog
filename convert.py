@@ -251,19 +251,17 @@ def update_index_html(yaml_file):
         
         article_html = f"""
         <div class="p-0">
-            <div class="flex justify-between items-center mb-4">
-                <div class="flex items-center">
-                    <span class="category-circle {article['category']}"></span>
-                    <h3 class="text-3xl font-bold text-gray-900 ml-3" style="font-family: 'Helvetica', sans-serif;">{article['title']}</h3>
-                </div>
-                <div class="text-sm text-gray-500 flex items-center">
-                    <span>{article['date']}</span>
-                    <span class="mx-2">•</span>
-                    <span>{article['readTime']}</span>
-                </div>
+            <div class="flex justify-between items-center mb-4 w-full">
+            <div class="flex items-center flex-1 min-w-0">
+                <span class="category-circle {article['category']} flex-shrink-0"></span>
+                <h3 class="text-3xl font-bold text-gray-900 ml-3 whitespace-nowrap overflow-hidden text-ellipsis" style="font-family: 'Helvetica', sans-serif;">{article['title']}</h3>
             </div>
-            <p class="text-gray-600 mb-4">{article['description']}</p>
-            <a href="articles/{article['slug']}.html" class="inline-block text-blue-600 hover:text-blue-800">Read more →</a>
+            <div class="text-sm text-gray-500 flex items-center flex-shrink-0 ml-4">
+                <span>{article['readTime']}</span>
+            </div>
+            </div>
+            <p class="ml-8 text-gray-600 mb-4">{article['description']}</p>
+            <a href="articles/{article['slug']}.html" class="ml-8 inline-block text-blue-600 hover:text-blue-800">Read more →</a>
         </div>
         """
         article_div.append(BeautifulSoup(article_html, 'html.parser'))
