@@ -13,7 +13,7 @@ def counter():
 		cur_count += 1
 		return cur_count
 	return count
- 
+
 counter1 = counter()
 counter1() # returns 1
 counter1() # returns 2
@@ -29,7 +29,8 @@ def make_appender():
 		my_list.append(item)
 		return my_list
 	return add_to_list
- 
+
+
 minion_words = make_appender()
 minion_words('bello')		# ['bello']
 minion_words('bank yu')		# ['bello', 'bank yu']
@@ -44,7 +45,7 @@ def disco_disco_party_party(i_say, you_say):
 		print(f'I say {i_say}.\nYou say {you_say}.')
 		print(f'{i_say.capitalize()}, {i_say}!\n{you_say.capitalize()}, {you_say}!')
 	return sing_verse
- 
+
 verse1 = disco_disco_party_party('disco', 'party')
 verse2 = disco_disco_party_party('party', 'disco')
 verse3 = disco_disco_party_party('disco', 'disco')
