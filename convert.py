@@ -25,7 +25,11 @@ def convert_markdown_to_html(markdown_file):
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link rel="stylesheet" href="../styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap" rel="stylesheet">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+
     </head>
     <style>
         .title-circle {{
@@ -37,12 +41,12 @@ def convert_markdown_to_html(markdown_file):
             background-color: #ef4444;
         }}
         /* Header styles */
-        h1 {{ font-size: 2.5rem !important; font-weight: 900 !important; margin-top: 2rem !important; margin-bottom: 1.5rem !important; font-family: 'Helvetica Neue', serif !important; }}
-        h2 {{ font-size: 2rem !important; font-weight: 700 !important; margin-top: 1.75rem !important; margin-bottom: 1.25rem !important; font-family: 'Helvetica Neue', serif !important; }}
-        h3 {{ font-size: 1.75rem !important; font-weight: 600 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; font-family: 'Helvetica Neue', serif !important; }}
-        h4 {{ font-size: 1.5rem !important; font-weight: 600 !important; margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; font-family: 'Helvetica Neue', serif !important; }}
-        h5 {{ font-size: 1.25rem !important; font-weight: 600 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; font-family: 'Helvetica Neue', serif !important; }}
-        h6 {{ font-size: 1.1rem !important; font-weight: 600 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; font-family: 'Helvetica Neue', serif !important; }}
+        h1 {{ font-size: 2.5rem !important; font-weight: 700 !important; margin-top: 2rem !important; margin-bottom: 1.5rem !important; font-family: 'Lexend', serif !important; }}
+        h2 {{ font-size: 2rem !important; font-weight: 500 !important; margin-top: 1.75rem !important; margin-bottom: 1.25rem !important; font-family: 'Lexend', serif !important; }}
+        h3 {{ font-size: 1.75rem !important; font-weight: 6400 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; font-family: 'Lexend', serif !important; }}
+        h4 {{ font-size: 1.5rem !important; font-weight: 300 !important; margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; font-family: 'Lexend', serif !important; }}
+        h5 {{ font-size: 1.25rem !important; font-weight: 200 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; font-family: 'Lexend', serif !important; }}
+        h6 {{ font-size: 1.1rem !important; font-weight: 100 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; font-family: 'Lexend', serif !important; }}
         /* Paragraph spacing */
         p {{ margin-bottom: 2rem !important; 
              font-size: 1.1rem;
@@ -87,9 +91,9 @@ def convert_markdown_to_html(markdown_file):
         }}
         pre code {{
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
-            font-size: 0.875rem !important;
+            font-size: 1rem !important;
             background-color: #f8f9fa !important;
-            line-height: 0.8 !important;
+            line-height: 0.9 !important;
             counter-reset: line;
         }}
         pre code .line {{
@@ -97,6 +101,7 @@ def convert_markdown_to_html(markdown_file):
             padding-left: 3.5rem;
             position: relative;
             margin: 0 !important;
+            min-height: 0.9em;
         }}
         pre code .line::before {{
             counter-increment: line;
@@ -147,7 +152,7 @@ def convert_markdown_to_html(markdown_file):
         <nav class="bg-white shadow-lg">
             <div class="max-w-4xl mx-auto px-4">
                 <div class="flex justify-between items-center py-4">
-                    <a href="../index.html" class="text-2xl font-bold text-gray-800 blog-title flex items-center hover:text-gray-600">
+                    <a href="../index.html" class="text-2xl font-bold text-gray-800 blog-title flex items-center hover:text-gray-600" style="font-family: 'Lexend', sans-serif;" href="/">
                         Luxted
                         <span class="title-circle ml-1 mr-1 mt-3"></span>
                         5
@@ -254,7 +259,7 @@ def update_index_html(yaml_file):
             <div class="flex justify-between items-center mb-4 w-full">
             <div class="flex items-center flex-1 min-w-0">
                 <span class="category-circle {article['category']} flex-shrink-0"></span>
-                <h3 class="text-3xl font-bold text-gray-900 ml-3 whitespace-nowrap overflow-hidden text-ellipsis" style="font-family: 'Helvetica', sans-serif;">{article['title']}</h3>
+                <h3 class="text-3xl text-gray-900 ml-3 whitespace-nowrap overflow-hidden text-ellipsis" style="font-family: 'Lexend', sans-serif;">{article['title']}</h3>
             </div>
             <div class="text-sm text-gray-500 flex items-center flex-shrink-0 ml-4">
                 <span>{article['readTime']}</span>
