@@ -29,6 +29,8 @@ def convert_markdown_to_html(markdown_file):
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
         <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
 
     </head>
     <style>
@@ -48,13 +50,14 @@ def convert_markdown_to_html(markdown_file):
         h5 {{ font-size: 1.25rem !important; font-weight: 200 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; font-family: 'Lexend', serif !important; }}
         h6 {{ font-size: 1.1rem !important; font-weight: 100 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; font-family: 'Lexend', serif !important; }}
         /* Paragraph spacing */
-        p {{ margin-bottom: 2rem !important; 
-             font-size: 1.1rem;
+        p {{
+            margin-bottom: 2rem !important; 
+            font-family: 'Lexend', monospace !important;
+            font-size: 1.1rem;
             }}
         /* Bold text */
         strong, b {{ 
-            font-weight: 900 !important;
-            text-shadow: 0.5px 0 0 currentColor, -0.5px 0 0 currentColor !important;
+            font-weight: 600 !important;
         }}
         /* Code block styles */
         .code-container {{
@@ -90,7 +93,7 @@ def convert_markdown_to_html(markdown_file):
             position: relative;
         }}
         pre code {{
-            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+            font-family: 'Google Sans Code', monospace !important;
             font-size: 1rem !important;
             background-color: #f8f9fa !important;
             line-height: 0.9 !important;
@@ -146,13 +149,19 @@ def convert_markdown_to_html(markdown_file):
             left: -1.5rem !important;
             color: #6b7280 !important;
         }}
+        .blog-title {{
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600 !important;
+            color: grey-900 !important;
+            text-decoration: none !important;
+        }}
     </style>
     <body>
         <!-- Navigation -->
         <nav class="bg-white shadow-lg">
             <div class="max-w-4xl mx-auto px-4">
                 <div class="flex justify-between items-center py-4">
-                    <a href="../index.html" class="text-2xl font-bold text-gray-800 blog-title flex items-center hover:text-gray-600" style="font-family: 'Lexend', sans-serif;" href="/">
+                    <a href="../index.html" class="text-2xl font-bold blog-title flex items-center hover:text-black" style="font-family: 'Lexend', sans-serif;" href="/">
                         Luxted
                         <span class="title-circle ml-1 mr-1 mt-3"></span>
                         5
