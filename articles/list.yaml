@@ -6,19 +6,12 @@
   slug: "python_closures"
 
 
-- title: "The Terminal: Daunting at the beginning but useful, immedately after"
+- title: "The Terminal: Daunting at the beginning but useful, immediately after"
   category: "programming"
   date: "May 4, 2025"
   readTime: "3 min read"
   description: "The many advantages of using the terminal."
   slug: "the-terminal"
-
-- title: "Getting Started with Tailwind CSS"
-  category: "programming"
-  date: "April 16, 2024"
-  readTime: "6 min read"
-  description: "Learn how to build beautiful, responsive websites using Tailwind CSS."
-  slug: "tailwind-intro"
 
 - title: "The Command line interface"
   category: "programming"

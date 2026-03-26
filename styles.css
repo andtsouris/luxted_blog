@@ -27,7 +27,7 @@ p {
 }
 .blog-title {
     font-family: 'Lexend', sans-serif;
-    color: black !important;
+    color: var(--text-primary, black);
     text-decoration: none;
 }
 .category-btn {
@@ -51,7 +51,7 @@ p {
     font-weight: 500;
 }
 .category-btn[onclick="filterArticles('all')"]:hover::after {
-    background-color: black;
+    background-color: var(--text-primary, black);
 }
 .category-btn[onclick="filterArticles('programming')"]:hover::after {
     background-color: #ef4444;
@@ -63,7 +63,6 @@ p {
     background-color: #22c55e;
 }
 .category-btn.active {
-    color: #2563eb;
     font-weight: 500;
 }
 .category-circle {

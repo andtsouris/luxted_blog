@@ -17,8 +17,103 @@
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
 
-    </head>
     <style>
+        :root {
+            --bg: #FAFAFA;
+            --bg-nav: #FAFAFA;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --border: #1A1A1A;
+            --red: #E3000B;
+            --blue: #0047AB;
+            --yellow: #FFD700;
+            --green: #22c55e;
+            --footer-bg: #1A1A1A;
+            --footer-text: #FAFAFA;
+        }
+        html.dark {
+            --bg: #141414;
+            --bg-nav: #1A1A1A;
+            --text-primary: #E8E8E8;
+            --text-secondary: #999;
+            --text-muted: #666;
+            --border: #333;
+            --red: #FF6B6B;
+            --blue: #5B9BFF;
+            --yellow: #FFE566;
+            --green: #6BE6A0;
+            --footer-bg: #0A0A0A;
+            --footer-text: #888;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            transition: background-color 0.4s, color 0.4s;
+        }
+        /* Nav styles */
+        nav.site-nav {
+            background: var(--bg-nav);
+            border-bottom: 4px solid var(--border);
+            transition: background-color 0.4s, border-color 0.4s;
+        }
+        .nav-inner {
+            max-width: 60rem;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .blog-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'Lexend', sans-serif;
+            transition: color 0.4s;
+        }
+        .title-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--red);
+            margin: 0 1px;
+            vertical-align: middle;
+            transition: background-color 0.4s;
+        }
+        .nav-five { transition: color 0.4s; }
+        html.dark .nav-five { color: var(--yellow); }
+        .dark-toggle {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+        .dark-toggle:hover {
+            background: var(--text-primary);
+            color: var(--bg);
+        }
+        .dark-toggle .icon-sun { display: none; }
+        .dark-toggle .icon-moon { display: block; }
+        html.dark .dark-toggle .icon-sun { display: block; }
+        html.dark .dark-toggle .icon-moon { display: none; }
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            transition: background-color 0.4s, color 0.4s;
+        }
         .title-circle {
             display: inline-block;
             width: 10px;
@@ -30,7 +125,7 @@
         /* Header styles */
         h1 { font-size: 2.5rem !important; font-weight: 700 !important; margin-top: 2rem !important; margin-bottom: 1.5rem !important; font-family: 'Lexend', serif !important; }
         h2 { font-size: 2rem !important; font-weight: 500 !important; margin-top: 1.75rem !important; margin-bottom: 1.25rem !important; font-family: 'Lexend', serif !important; }
-        h3 { font-size: 1.75rem !important; font-weight: 6400 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; font-family: 'Lexend', serif !important; }
+        h3 { font-size: 1.75rem !important; font-weight: 600 !important; margin-top: 1.5rem !important; margin-bottom: 1rem !important; font-family: 'Lexend', serif !important; }
         h4 { font-size: 1.5rem !important; font-weight: 300 !important; margin-top: 1.25rem !important; margin-bottom: 0.75rem !important; font-family: 'Lexend', serif !important; }
         h5 { font-size: 1.25rem !important; font-weight: 200 !important; margin-top: 1rem !important; margin-bottom: 0.5rem !important; font-family: 'Lexend', serif !important; }
         h6 { font-size: 1.1rem !important; font-weight: 100 !important; margin-top: 0.75rem !important; margin-bottom: 0.5rem !important; font-family: 'Lexend', serif !important; }
@@ -115,6 +210,10 @@
             text-decoration: underline !important;
             color: #6b7280 !important;
         }
+        a.blog-title {
+            text-decoration: none !important;
+            color: var(--text-primary) !important;
+        }
         a:hover {
             color: #4b5563 !important;
         }
@@ -134,24 +233,17 @@
             left: -1.5rem !important;
             color: #6b7280 !important;
         }
-        .blog-title {
-            font-family: 'Lexend', sans-serif;
-            font-weight: 600 !important;
-            color: grey-900 !important;
-            text-decoration: none !important;
-        }
     </style>
+    </head>
     <body>
         <!-- Navigation -->
-        <nav class="bg-white shadow-lg">
-            <div class="max-w-4xl mx-auto px-4">
-                <div class="flex justify-between items-center py-4">
-                    <a href="../index.html" class="text-2xl font-bold blog-title flex items-center hover:text-black" style="font-family: 'Lexend', sans-serif;" href="/">
-                        Luxted
-                        <span class="title-circle ml-1 mr-1 mt-3"></span>
-                        5
-                    </a>
-                </div>
+        <nav class="site-nav">
+            <div class="nav-inner">
+                <a href="../index.html" class="blog-title">Luxted<span class="title-dot"></span><span class="nav-five">5</span></a>
+                <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+                    <span class="icon-moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></span>
+                    <span class="icon-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+                </button>
             </div>
         </nav>
 
@@ -183,10 +275,10 @@ mkdir #(M)a(K)e a new (DIR)ectory
         </main>
 
         <!-- Footer -->
-        <footer class="bg-gray-800 text-white">
+        <footer>
             <div class="max-w-4xl mx-auto px-4 py-8">
                 <div class="text-center">
-                    <p>&copy; 2025 Luxted.5 Blog. All rights reserved.</p>
+                    <p>&copy; 2026 Luxted.5 Blog. All rights reserved.</p>
                 </div>
             </div>
         </footer>
@@ -195,7 +287,7 @@ mkdir #(M)a(K)e a new (DIR)ectory
             document.addEventListener('DOMContentLoaded', (event) => {
                 // Initialize highlight.js
                 document.querySelectorAll('pre code').forEach((block) => {
-                    hljs.highlightBlock(block);
+                    hljs.highlightElement(block);
                     
                     // Add line numbers
                     const lines = block.innerHTML.split('\n');
@@ -229,6 +321,15 @@ mkdir #(M)a(K)e a new (DIR)ectory
                     });
                 });
             });
+
+            // Dark mode
+            function toggleDarkMode() {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+            }
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.documentElement.classList.add('dark');
+            }
         </script>
     </body>
     </html>
