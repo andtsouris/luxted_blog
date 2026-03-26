@@ -8,71 +8,347 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <link href="styles.css" rel="stylesheet"/>
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&amp;family=Lexend:wght@100..900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" rel="stylesheet"/>
 <style>
-    .title-circle {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-right: 0px;
-    background-color: #ef4444;
-}
-    .article-title {
-        font-family: 'Lexend', serif !important;
-        word-wrap: break-word !important;
-        max-width: 100% !important;
-        flex: 1 !important;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── CSS Custom Properties for theming ── */
+    :root {
+        --bg: #FAFAFA;
+        --bg-nav: #FAFAFA;
+        --text-primary: #1A1A1A;
+        --text-secondary: #666;
+        --text-muted: #999;
+        --border: #1A1A1A;
+        --border-thin: #d4d4d4;
+        --red: #E3000B;
+        --blue: #0047AB;
+        --yellow: #FFD700;
+        --green: #22c55e;
+        --footer-bg: #1A1A1A;
+        --footer-text: #FAFAFA;
+        --article-hover-bg: transparent;
+        --link-color: #1A1A1A;
     }
-    .category-circle {
-        width: 13px !important;
-        height: 13px !important;
-        flex-shrink: 0 !important;
+    html.dark {
+        --bg: #141414;
+        --bg-nav: #1A1A1A;
+        --text-primary: #E8E8E8;
+        --text-secondary: #999;
+        --text-muted: #666;
+        --border: #333;
+        --border-thin: #2A2A2A;
+        --red: #FF6B6B;
+        --blue: #5B9BFF;
+        --yellow: #FFE566;
+        --green: #6BE6A0;
+        --footer-bg: #0A0A0A;
+        --footer-text: #888;
+        --article-hover-bg: rgba(255,255,255,0.02);
+        --link-color: #E8E8E8;
     }
-    .article-meta {
-        flex-shrink: 0 !important;
-        white-space: nowrap !important;
-        margin-left: 1rem !important;
+
+    body {
+        font-family: 'Lexend', sans-serif;
+        background-color: var(--bg);
+        color: var(--text-primary);
+        min-height: 100vh;
+        transition: background-color 0.4s, color 0.4s;
+    }
+
+    /* ── Navigation ── */
+    nav {
+        background: var(--bg-nav);
+        border-bottom: 4px solid var(--border);
+        transition: background-color 0.4s, border-color 0.4s;
+    }
+    .nav-inner {
+        max-width: 60rem;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .blog-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: color 0.4s;
+    }
+    .title-dot {
+        display: inline-block;
+        width: 8px; height: 8px;
+        border-radius: 50%;
+        background: var(--red);
+        margin: 0 1px;
+        vertical-align: middle;
+        transition: background-color 0.4s;
+    }
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    .nav-buttons {
+        display: flex;
+        gap: 1.5rem;
+    }
+    .category-btn {
+        padding: 0.3rem 0;
+        font-weight: 300;
+        font-size: 0.75rem;
+        color: var(--text-primary);
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: color 0.2s;
+        font-family: 'Lexend', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        position: relative;
+    }
+    .category-btn::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0;
+        bottom: -2px;
+        height: 3px;
+        background: transparent;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .category-btn[onclick*="'all'"]::after { background: var(--text-primary); }
+    .category-btn[onclick*="'programming'"]::after { background: var(--red); }
+    .category-btn[onclick*="'data'"]::after { background: var(--blue); }
+    .category-btn[onclick*="'life'"]::after { background: var(--green); }
+
+    .category-btn:hover::after { opacity: 1; }
+    .category-btn[onclick*="'programming'"]:hover { color: var(--red); }
+    .category-btn[onclick*="'data'"]:hover { color: var(--blue); }
+    .category-btn[onclick*="'life'"]:hover { color: var(--green); }
+
+    .category-btn.active { font-weight: 700; }
+    .category-btn.active::after { opacity: 1; }
+    .category-btn.active[onclick*="'programming'"] { color: var(--red); }
+    .category-btn.active[onclick*="'data'"] { color: var(--blue); }
+    .category-btn.active[onclick*="'life'"] { color: var(--green); }
+
+    /* ── Dark mode toggle ── */
+    .dark-toggle {
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        border: 2px solid var(--border);
+        background: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        flex-shrink: 0;
+        color: var(--text-primary);
+        font-size: 1rem;
+    }
+    .dark-toggle:hover {
+        background: var(--text-primary);
+        color: var(--bg);
+    }
+    .dark-toggle .icon-sun { display: none; }
+    .dark-toggle .icon-moon { display: block; }
+    html.dark .dark-toggle .icon-sun { display: block; }
+    html.dark .dark-toggle .icon-moon { display: none; }
+    html.dark .nav-five { color: var(--yellow); }
+
+    /* ── Hero ── */
+    .hero {
+        padding: 5rem 2rem 3rem;
+        max-width: 60rem;
+        margin: 0 auto;
+        text-align: center;
+        border-bottom: 4px solid var(--border);
+        transition: border-color 0.4s;
+    }
+    .hero-line {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .hero-welcome {
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        transition: color 0.4s;
+    }
+    .hero-brand {
+        font-size: 5rem;
+        font-weight: 900;
+        color: var(--text-primary);
+        letter-spacing: -0.06em;
+        line-height: 1;
+        transition: color 0.4s;
+    }
+    .hero-number { color: var(--yellow); transition: color 0.4s; }
+    .hero-number {
+        font-size: 5.5rem;
+        font-weight: 100;
+        line-height: 1;
+        margin-left: 0.02em;
+    }
+    .hero-circles {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1.5rem;
+    }
+    .hero-circles span {
+        width: 14px; height: 14px;
+        border-radius: 50%;
+        transition: background-color 0.4s;
+    }
+    .hero-circles span:nth-child(1) { background: var(--red); }
+    .hero-circles span:nth-child(2) { background: var(--yellow); }
+    .hero-circles span:nth-child(3) { background: var(--blue); }
+    .hero-circles span:nth-child(4) { background: var(--text-primary); }
+
+    /* ── Articles ── */
+    main {
+        max-width: 60rem;
+        margin: 0 auto;
+        padding: 3rem 2rem 4rem;
+    }
+    .articles-label {
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        transition: color 0.4s;
+    }
+    .article {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--border-thin);
+        transition: all 0.2s;
+    }
+    .article:first-child {
+        border-top: 1px solid var(--border-thin);
+    }
+    .article:hover {
+        padding-left: 1rem;
+        background: var(--article-hover-bg);
+        cursor: pointer;
+    }
+    .article-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    .article-title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        min-width: 0;
+        flex: 1;
+    }
+    .cat-circle {
+        width: 14px; height: 14px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        transition: background-color 0.4s, transform 0.2s;
+    }
+    .article:hover .cat-circle { transform: scale(1.2); }
+    .cat-circle.programming { background: var(--red); }
+    .cat-circle.data { background: var(--blue); }
+    .cat-circle.life { background: var(--green); }
+
+    .article h3 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: color 0.4s;
+    }
+    .read-time {
+        font-size: 0.7rem;
+        color: var(--text-muted);
+        flex-shrink: 0;
+        margin-left: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        transition: color 0.4s;
+    }
+    .article p {
+        color: var(--text-secondary);
+        font-weight: 250;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        transition: color 0.4s;
+    }
+    .article a {
+        color: var(--link-color);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        transition: color 0.2s;
+    }
+    .article a:hover { color: var(--red); }
+
+    /* ── Footer ── */
+    footer {
+        background: var(--footer-bg);
+        color: var(--footer-text);
+        text-align: center;
+        padding: 2rem;
+        font-weight: 200;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        transition: background-color 0.4s, color 0.4s;
     }
 </style>
 </head>
 <body>
-<!-- Navigation -->
-<nav class="bg-white shadow-lg">
-<div class="max-w-4xl mx-auto px-4">
-<div class="flex justify-between items-center py-4">
-<a class="text-5xl font-semibold text-gray-800 blog-title flex items-center hover:text-gray-600" href="/" style="font-family: 'Lexend', sans-serif;">
-                    Luxted
-                    <span class="title-circle ml-1 mr-1 mt-7"></span>
-                    5
-                </a>
-<div class="flex space-x-4">
-<button class="category-btn active px-1 py-2" onclick="filterArticles('all')">All</button>
-<button class="category-btn px-1 py-2" onclick="filterArticles('programming')">Programming</button>
-<button class="category-btn px-1 py-2" onclick="filterArticles('data')">Data</button>
-<button class="category-btn px-1 py-2" onclick="filterArticles('life')">Life</button>
+<nav>
+<div class="nav-inner">
+<a class="blog-title" href="/">Luxted<span class="title-dot"></span><span class="nav-five">5</span></a>
+<div class="nav-right">
+<div class="nav-buttons">
+<button class="category-btn active" onclick="filterArticles('all')">All</button>
+<button class="category-btn" onclick="filterArticles('programming')">Programming</button>
+<button class="category-btn" onclick="filterArticles('data')">Data</button>
+<button class="category-btn" onclick="filterArticles('life')">Life</button>
 </div>
+<button aria-label="Toggle dark mode" class="dark-toggle" onclick="toggleDarkMode()">
+<span class="icon-moon"><svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg></span>
+<span class="icon-sun"><svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="5"></circle><line x1="12" x2="12" y1="1" y2="3"></line><line x1="12" x2="12" y1="21" y2="23"></line><line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line><line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line><line x1="1" x2="3" y1="12" y2="12"></line><line x1="21" x2="23" y1="12" y2="12"></line><line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line><line x1="18.36" x2="19.78" y1="5.64" y2="4.22"></line></svg></span>
+</button>
 </div>
 </div>
 </nav>
-<!-- Hero Section -->
-<header class="bg-white">
-<div class="max-w-4xl mx-auto px-4 py-24 my-8">
-<h1 class="text-6xl md:text-6xl font-thin text-gray-900 text-center mb-4" style="font-family: 'Lexend', serif;">Welcome to</h1>
-<h1 class="text-6xl md:text-7xl font-semibold text-gray-900 text-center" style="font-family: 'Lexend', serif; letter-spacing: -0.05em;">Luxted<span class="title-circle ml-1 mr-1 mt-1"></span>5</h1>
+<header class="hero">
+<div class="hero-line">
+<span class="hero-welcome"><span style="color:var(--blue)">Welcome to</span></span>
+<span class="hero-brand"><span>L</span><span>U</span><span style="position:relative;z-index:1">X</span><span style="color:var(--red);margin-left:-0.18em;position:relative;z-index:0">T</span><span style="color:var(--red)">E</span><span style="color:var(--red)">D</span></span><span class="hero-number">5</span>
 </div>
+<div class="hero-circles"><span></span><span></span><span></span><span></span></div>
 </header>
-<!-- Main Content -->
-<main class="max-w-4xl mx-auto px-4 py-8">
-<!-- Featured Posts -->
-<section class="mb-12">
-<div class="space-y-12" id="articles-container"><article class="article" data-category="programming">
+<main>
+<p class="articles-label">Latest Articles</p>
+<div id="articles-container"><article class="article" data-category="programming">
 <div class="p-0">
 <div class="flex justify-between items-center mb-4 w-full">
 <div class="flex items-center flex-1 min-w-0">
@@ -91,7 +367,7 @@
 <div class="flex justify-between items-center mb-4 w-full">
 <div class="flex items-center flex-1 min-w-0">
 <span class="category-circle programming flex-shrink-0"></span>
-<h3 class="text-3xl text-gray-900 ml-3 whitespace-nowrap overflow-hidden text-ellipsis" style="font-family: 'Lexend', sans-serif;">The Terminal: Daunting at the beginning but useful, immedately after</h3>
+<h3 class="text-3xl text-gray-900 ml-3 whitespace-nowrap overflow-hidden text-ellipsis" style="font-family: 'Lexend', sans-serif;">The Terminal: Daunting at the beginning but useful, immediately after</h3>
 </div>
 <div class="text-sm text-gray-500 flex items-center flex-shrink-0 ml-4">
 <span>3 min read</span>
@@ -115,49 +391,43 @@
 <a class="ml-8 inline-block text-blue-600 hover:text-blue-800" href="articles/cli_article.html">Read more →</a>
 </div>
 </article></div>
-</section>
 </main>
-<!-- Footer -->
-<footer class="bg-gray-800 text-white">
-<div class="max-w-4xl mx-auto px-4 py-8">
-<div class="text-center">
-<p>© 2025 Luxted.5 Blog. All rights reserved.</p>
-</div>
-</div>
+<footer>
+<p>© 2026 Luxted.5 Blog. All rights reserved.</p>
 </footer>
 <script>
-        // Initialize highlight.js
-        document.addEventListener('DOMContentLoaded', (event) => {
-            document.querySelectorAll('pre code').forEach((block) => {
-                hljs.highlightBlock(block);
-            });
+    // Initialize highlight.js
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightElement(block);
         });
 
-        // Category subtitles
-        const categorySubtitles = {
-            'all': 'Thoughts, stories and ideas about technology and more.',
-            'programming': 'Articles about programming, web development, and software engineering.',
-            'data': 'Insights into data science, analytics, and machine learning.',
-            'life': 'Personal stories, experiences, and life lessons.'
-        };
-
-        function filterArticles(category) {
-            // Update active button
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.remove('active');
+        // Make entire article container clickable
+        document.querySelectorAll('.article').forEach(article => {
+            article.addEventListener('click', () => {
+                const link = article.querySelector('a');
+                if (link) window.location.href = link.href;
             });
-            document.querySelector(`.category-btn[onclick="filterArticles('${category}')"]`).classList.add('active');
+        });
+    });
 
-            // Filter articles
-            const articles = document.querySelectorAll('.article');
-            articles.forEach(article => {
-                if (category === 'all' || article.dataset.category === category) {
-                    article.style.display = 'block';
-                } else {
-                    article.style.display = 'none';
-                }
-            });
-        }
-    </script>
+    function filterArticles(category) {
+        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`.category-btn[onclick="filterArticles('${category}')"]`).classList.add('active');
+        document.querySelectorAll('.article').forEach(article => {
+            article.style.display = (category === 'all' || article.dataset.category === category) ? 'block' : 'none';
+        });
+    }
+
+    function toggleDarkMode() {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+    }
+
+    // Persist dark mode preference
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.documentElement.classList.add('dark');
+    }
+</script>
 </body>
-</html> 
+</html>
